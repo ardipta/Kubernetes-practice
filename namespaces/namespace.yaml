@@ -1,6 +1,8 @@
 apiVersion: v1
-kind: Namespace
+kind: Pod
 metadata:
-  name: dev
-  labels:
-    app: dev
+  namespace: finance
+spec:
+  containers:
+    - name: redis
+      image: redis
