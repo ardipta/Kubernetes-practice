@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: developer-role
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["list", "get", "create", "update", "delete"]
+  - apiGroups: [""]
+    resources: ["ConfigMap"]
+    verbs: ["create"]
+    resourceNames: ["pod-1", "pod-2"] # restrict the ConfigMap to only pod-1 and pod-2
